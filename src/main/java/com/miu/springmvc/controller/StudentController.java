@@ -18,7 +18,7 @@ public class StudentController {
     }
 
     // handler method to handle list students and return model and view
-    @GetMapping("/students")
+    @GetMapping("/")
     public String getListOfStudent(Model model){
         model.addAttribute("students", studentService.getAllstudents());
         return "students";
@@ -34,7 +34,7 @@ public class StudentController {
     @PostMapping("/students")
     public String saveStudent(@ModelAttribute("student") Student student){
         studentService.saveStudent(student);
-        return "redirect:/students";
+        return "redirect:/";
     }
 
     @GetMapping("/students/edit/{id}")
@@ -52,6 +52,6 @@ public class StudentController {
         existStudent.setEmail(student.getEmail());
 
         studentService.updateStudent(existStudent);
-        return "redirect:/students";
+        return "redirect:/";
     }
 }
